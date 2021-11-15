@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../../style/login/login.css'
-import env from "react-dotenv";
 require('dotenv').config();
 
 const LoginForm = () => {
