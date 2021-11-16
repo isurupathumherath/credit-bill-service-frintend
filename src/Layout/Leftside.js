@@ -27,8 +27,8 @@ export class Leftside extends Component {
                         </a>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Custom Components:</h6>
-                                <Link class="collapse-item" to="/login">Login</Link>
+                                <h6 class="collapse-header">User Management</h6>
+                                <Link class="collapse-item" to="/login">Create New User</Link>
                                 <Link class="collapse-item" to="/button">Chart</Link>
                             </div>
                         </div>

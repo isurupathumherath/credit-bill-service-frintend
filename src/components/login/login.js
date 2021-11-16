@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../../style/login/login.css'
 import { authenticate, getUser } from '../../api/userHelper';
+
+//Load .env component
 require('dotenv').config();
 
 
@@ -21,7 +23,6 @@ const LoginForm = props => {
         const user = { username, password }
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
-                console.log(response)
                 if (response == null) {
                     Swal.fire({
                         title: 'Login Failed!',
@@ -47,7 +48,7 @@ const LoginForm = props => {
                     else if (response.data.role === "Common") {
                         Swal.fire({
                             title: 'Welcome!',
-                            text: `User ${response.data.username} Authenticated`,
+                            text: `User ${response.data.username} Authenticated & Common Account`,
                             icon: 'success'
                         });
                         setUser(response.data)
@@ -73,7 +74,7 @@ const LoginForm = props => {
             .catch(error => {
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Login Failed',
+                    text: 'Login Failed! Internal Server Error!',
                     icon: 'error',
                     confirmButtonText: 'Try again'
                 });
