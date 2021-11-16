@@ -13,7 +13,7 @@ const Routes = () => {
                 <Route path='/404' component={NotFound} />
                 <PrivateRoute path="/" exact component={App} />
                 <Route path="/login" exact component={Login} />
-                <Route component={NotFound} />
+                <Redirect from='*' to='/404' />
             </Switch>
         </BrowserRouter>
     );
