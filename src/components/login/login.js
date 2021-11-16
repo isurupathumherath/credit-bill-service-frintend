@@ -119,10 +119,11 @@ const LoginForm = () => {
                                             {/* <button onClick={Login} className="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button> */}
                                             <button onClick={Login}
                                                 className="btn btn-info btn-block btn-lg login-btn"
-                                                style={{ marginTop: '15px' }}><i className="fas fa-sign-in-alt"> Login</i>
+                                                style={{ marginTop: '15px' }}><i> <b> Login </b></i>
                                             </button>
+                                            <br />
                                             <div className="text-center">
-                                                <a className="small" href="#">Forgot password?</a>
+                                                <a className="small" href="#">Forgot password? Please Contact Your Administrator</a>
                                             </div>
                                         </div>
 
