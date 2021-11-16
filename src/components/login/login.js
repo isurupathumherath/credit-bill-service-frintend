@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../../style/login/login.css'
+import { authenticate, getUser } from '../../api/userHelper';
 require('dotenv').config();
 
-const LoginForm = () => {
+
+const LoginForm = props => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -12,7 +14,7 @@ const LoginForm = () => {
     const Swal = require('sweetalert2');
 
     useEffect(() => {
-        //for not this is empty
+        getUser() && props.history.push('/');
     }, []);
 
     const Login = () => {
@@ -20,7 +22,7 @@ const LoginForm = () => {
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
                 console.log(response)
-                if (response.data == null) {
+                if (response == null) {
                     Swal.fire({
                         title: 'Login Failed!',
                         text: 'Username or Password incorrect',
@@ -36,8 +38,9 @@ const LoginForm = () => {
                             icon: 'success'
                         });
                         setUser(response.data)
+
                         //response will contain token and name
-                        // authenticate(response, () => props.history.push(`/staffFirstLogin/${response.data.employeeId}`), 2000);
+                        authenticate(response, () => props.history.push('/'), 2000);
                         // alert("First Login")
                         // setTimeout(() => { window.location.href = `/staffFirstLogin/${response.data.employeeId}` }, 2000);
                     }
