@@ -23,7 +23,6 @@ const LoginForm = props => {
         const user = { username, password }
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
-                console.log(response)
                 if (response == null) {
                     Swal.fire({
                         title: 'Login Failed!',
