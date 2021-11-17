@@ -23,8 +23,7 @@ const LoginForm = props => {
         const user = { username, password }
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
-                console.log(response.data.user)
-                if (response.data.user == null) {
+                if (response == null) {
                     Swal.fire({
                         title: 'Login Failed!',
                         text: 'Username or Password incorrect',
@@ -33,26 +32,26 @@ const LoginForm = props => {
                     });
                 }
                 else {
-                    if (response.data.user.role === "Admin") {
+                    if (response.data.role === "Admin") {
                         Swal.fire({
                             title: 'Welcome!',
                             text: `User ${response.data.username} Authenticated & Admin Account`,
                             icon: 'success'
                         });
-                        setUser(response.data.user)
+                        setUser(response.data)
 
                         //response will contain token and name
-                        authenticate(response.data.user, () => props.history.push('/'), 2000);
+                        authenticate(response, () => props.history.push('/'), 2000);
                         // alert("First Login")
                         // setTimeout(() => { window.location.href = `/staffFirstLogin/${response.data.employeeId}` }, 2000);
                     }
-                    else if (response.data.user.role === "Common") {
+                    else if (response.data.role === "Common") {
                         Swal.fire({
                             title: 'Welcome!',
-                            text: `User ${response.data.user.username} Authenticated & Common Account`,
+                            text: `User ${response.data.username} Authenticated & Common Account`,
                             icon: 'success'
                         });
-                        setUser(response.data.user)
+                        setUser(response.data)
 
                         // authenticate(response, () => props.history.push(`/staffLandingPage/${response.data.employeeId}`), 2000);
 
