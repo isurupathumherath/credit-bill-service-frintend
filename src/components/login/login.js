@@ -23,7 +23,7 @@ const LoginForm = props => {
         const user = { username, password }
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
-                if (response == null) {
+                if (response.data.user == null) {
                     Swal.fire({
                         title: 'Login Failed!',
                         text: 'Username or Password incorrect',
@@ -35,13 +35,13 @@ const LoginForm = props => {
                     if (response.data.role === "Admin") {
                         Swal.fire({
                             title: 'Welcome!',
-                            text: `User ${response.data.username} Authenticated & Admin Account`,
+                            text: `User ${response.data.user.username} Authenticated & Admin Account`,
                             icon: 'success'
                         });
                         setUser(response.data)
 
                         //response will contain token and name
-                        authenticate(response, () => props.history.push('/'), 2000);
+                        authenticate(response.data, () => props.history.push('/'), 2000);
                         // alert("First Login")
                         // setTimeout(() => { window.location.href = `/staffFirstLogin/${response.data.employeeId}` }, 2000);
                     }
