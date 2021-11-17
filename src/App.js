@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div>
      <Layout />
-     <CustomerAdd/>
+    
    
 
     </div>
