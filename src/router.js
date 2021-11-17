@@ -5,6 +5,7 @@ import PrivateRoute from './api/privateRoutes';
 import Login from './components/login/login';
 import App from './App';
 import NotFound from './pages/NotFound';
+import CustomerAdd from './components/CustomerAdd';
 
 const Routes = () => {
     return (
@@ -12,6 +13,7 @@ const Routes = () => {
             <Switch>
                 <PrivateRoute path="/" exact component={App} />
                 <Route path="/login" exact component={Login} />
+                <Route path="/AddCus" exact component={CustomerAdd} />
                 <Route path='/404' component={NotFound} />
                 <Redirect from='*' to='/404' />
             </Switch>
