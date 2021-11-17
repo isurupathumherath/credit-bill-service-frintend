@@ -23,6 +23,7 @@ const LoginForm = props => {
         const user = { username, password }
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
+                console.log(response.data.user)
                 if (response.data.user == null) {
                     Swal.fire({
                         title: 'Login Failed!',
@@ -32,26 +33,26 @@ const LoginForm = props => {
                     });
                 }
                 else {
-                    if (response.data.role === "Admin") {
+                    if (response.data.user.role == "Admin") {
                         Swal.fire({
                             title: 'Welcome!',
                             text: `User ${response.data.user.username} Authenticated & Admin Account`,
                             icon: 'success'
                         });
-                        setUser(response.data)
+                        setUser(response.data.user)
 
                         //response will contain token and name
                         authenticate(response.data, () => props.history.push('/'), 2000);
                         // alert("First Login")
                         // setTimeout(() => { window.location.href = `/staffFirstLogin/${response.data.employeeId}` }, 2000);
                     }
-                    else if (response.data.role === "Common") {
+                    else if (response.data.user.role == "Common") {
                         Swal.fire({
                             title: 'Welcome!',
                             text: `User ${response.data.username} Authenticated & Common Account`,
                             icon: 'success'
                         });
-                        setUser(response.data)
+                        setUser(response.data.user)
 
                         // authenticate(response, () => props.history.push(`/staffLandingPage/${response.data.employeeId}`), 2000);
 
@@ -63,7 +64,7 @@ const LoginForm = props => {
                     else {
                         Swal.fire({
                             title: 'Login Failed!',
-                            text: 'Username or Password incorrect',
+                            text: 'Server Error',
                             icon: 'error',
                             confirmButtonText: 'Try again'
                         });
