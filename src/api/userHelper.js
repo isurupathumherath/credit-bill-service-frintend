@@ -1,9 +1,9 @@
 //save login response > (user's name and token) to session storage
 export const authenticate = (response, next) => {
     if (window !== 'undefined') {
-        // console.log('authenticate', response)
-        // sessionStorage.setItem('token', JSON.stringify(response.data.token));
-        sessionStorage.setItem('username', JSON.stringify(response.username));
+        // console.log('authenticate', response.user.username)
+        sessionStorage.setItem('token', JSON.stringify(response.token));
+        sessionStorage.setItem('username', JSON.stringify(response.user.username));
     }
     next();
 };
@@ -36,7 +36,7 @@ export const getUser = () => {
 //remove token from session storage
 export const logout = (next) => {
     if (window !== 'undefined') {
-        // sessionStorage.removeItem('token');
+        sessionStorage.removeItem('token');
         sessionStorage.removeItem('username');
     }
     next();
