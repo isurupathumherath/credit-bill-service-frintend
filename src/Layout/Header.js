@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import Login from '../router';
+import React from 'react';
 import { getUser, logout } from '../api/userHelper';
 
 // export class Header extends Component({ history }) {
