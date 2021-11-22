@@ -163,7 +163,7 @@ export default function CustomerAdd() {
                 setAddDate(e.target.value);
                  }}/>
 
-                <label for ="addedBy"><h5>Added Buy</h5></label>
+                <label for ="addedBy"><h5>Added By</h5></label>
                 
                     
                 <Input placeholder="Enter Adding Person" type="text" onChange={(e)=>{
