@@ -16,10 +16,7 @@ const LoginForm = props => {
     const Swal = require('sweetalert2');
 
     useEffect(() => {
-        function getUserAndValidate() {
-            getUser() && props.history.push('/');
-        }
-        getUserAndValidate();
+        getUser() && props.history.push('/');
     }, []);
 
     const Login = () => {
@@ -46,7 +43,6 @@ const LoginForm = props => {
 
                         //response will contain token and name
                         authenticate(response.data, () => props.history.push('/'), 2000);
-                        // alert("First Login")
                         // setTimeout(() => { window.location.href = `/staffFirstLogin/${response.data.employeeId}` }, 2000);
                     }
                     else if (response.data.user.role === "Common") {
@@ -58,8 +54,6 @@ const LoginForm = props => {
                         // setUser(response.data.user)
 
                         // authenticate(response, () => props.history.push(`/staffLandingPage/${response.data.employeeId}`), 2000);
-
-                        // alert("Active Account")
                         //response will contain token and name
                         // authenticate(response, () => props.history.push('/create'));
                         // setTimeout(() => { window.location.href = `/staffLandingPage/${response.data.employeeId}` }, 2000);
