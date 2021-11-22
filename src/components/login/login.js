@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import '../../style/login/login.css'
+import '../../style/login/login.css';
 import { authenticate, getUser } from '../../api/userHelper';
 
 //Load .env component
@@ -11,7 +11,7 @@ const LoginForm = props => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [user, setUser] = useState([]);
+    // const [user, setUser] = useState([]);
 
     const Swal = require('sweetalert2');
 
@@ -24,7 +24,7 @@ const LoginForm = props => {
         axios.post(`${process.env.REACT_APP_API}/login`, user)
             .then(response => {
                 console.log(response.data.user)
-                if (response.data.user == null) {
+                if (response.data.user === null) {
                     Swal.fire({
                         title: 'Login Failed!',
                         text: 'Username or Password incorrect',
@@ -33,30 +33,27 @@ const LoginForm = props => {
                     });
                 }
                 else {
-                    if (response.data.user.role == "Admin") {
+                    if (response.data.user.role === "Admin") {
                         Swal.fire({
                             title: 'Welcome!',
                             text: `User ${response.data.user.username} Authenticated & Admin Account`,
                             icon: 'success'
                         });
-                        setUser(response.data.user)
+                        // setUser(response.data.user)
 
                         //response will contain token and name
                         authenticate(response.data, () => props.history.push('/'), 2000);
-                        // alert("First Login")
                         // setTimeout(() => { window.location.href = `/staffFirstLogin/${response.data.employeeId}` }, 2000);
                     }
-                    else if (response.data.user.role == "Common") {
+                    else if (response.data.user.role === "Common") {
                         Swal.fire({
                             title: 'Welcome!',
                             text: `User ${response.data.username} Authenticated & Common Account`,
                             icon: 'success'
                         });
-                        setUser(response.data.user)
+                        // setUser(response.data.user)
 
                         // authenticate(response, () => props.history.push(`/staffLandingPage/${response.data.employeeId}`), 2000);
-
-                        // alert("Active Account")
                         //response will contain token and name
                         // authenticate(response, () => props.history.push('/create'));
                         // setTimeout(() => { window.location.href = `/staffLandingPage/${response.data.employeeId}` }, 2000);
