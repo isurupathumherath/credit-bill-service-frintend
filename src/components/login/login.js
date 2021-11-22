@@ -16,10 +16,7 @@ const LoginForm = props => {
     const Swal = require('sweetalert2');
 
     useEffect(() => {
-        function getUserAndValidate() {
-            getUser() && props.history.push('/');
-        }
-        getUserAndValidate();
+        getUser() && props.history.push('/');
     }, []);
 
     const Login = () => {
