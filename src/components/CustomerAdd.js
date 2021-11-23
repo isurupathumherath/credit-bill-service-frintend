@@ -7,7 +7,9 @@ import {
   Button,
   Label,
   
+  
   Input,
+  Container,
   
 } from "reactstrap";
 
@@ -25,7 +27,7 @@ export default function CustomerAdd() {
   const [gender, setGender]=useState("");
   const [companyid, setCid]=useState("");
   const [balance, setBalance]=useState("");
-  const [addedAt, setAddDate]=useState("");
+
   const [addedBy, setAddBy]=useState("");
  
 
@@ -45,7 +47,6 @@ export default function CustomerAdd() {
      gender,
      companyid,
      balance,
-     addedAt,
      addedBy
     }
     
@@ -53,8 +54,8 @@ export default function CustomerAdd() {
       alert("Customer Added");
       window.location.reload();
 
-    }).catch((err)=>{
-      alert(err)
+    }).catch((error)=>{
+      alert(error)
     })
   }
   
@@ -66,109 +67,189 @@ export default function CustomerAdd() {
    
       <div style = {{paddingTop :"50px"}} className ={styles.body}>
       <br/><br/><h3 className = {styles.header} style = {{textAlign : 'center'}}>Insert New Customer</h3><br/><br/>
-      <div className = {styles.FormContainer}>    
-                
-                
-                <form onSubmit={sendData} >
-                <label for = "firstName"><h5>First Name</h5></label>
+      <Container>
+      
+      <form onSubmit={sendData} >
+
+      <div class="container">
+      <div class="row">
+      <div class="col-sm">
+      <label for = "firstName"><h5>First Name</h5></label>
                   
                     
                   <Input placeholder="First Name" type="text" 
                    required onChange={(e)=>{
                   setfName(e.target.value);
                    }} />
-                  <label for = "middleName"><h5>Middle Name</h5></label>
+    </div>
+    <div class="col-sm">
+    <label for = "middleName"><h5>Middle Name</h5></label>
                   
                     
-                    <Input placeholder="Enter Middle Name" type="text" required onChange={(e)=>{
-                    setmName(e.target.value);
-                     }} />
-                 
+                  <Input placeholder="Enter Middle Name" type="text" required onChange={(e)=>{
+                  setmName(e.target.value);
+                   }} />
+    </div>
+    <div class="col-sm">
+    <label for = "lastName"><h5>Last Name</h5></label>
+                  
+                    
+                  <Input placeholder="Enter Last Name" type="text" required onChange={(e)=>{
+                  setlName(e.target.value);
+                   }} />
+    </div>
+  </div>
+</div> 
+<br/>
 
-                  <label for = "lastName"><h5>Last Name</h5></label>
-                  
-                    
-                    <Input placeholder="Enter Last Name" type="text" required onChange={(e)=>{
-                    setlName(e.target.value);
-                     }} />
 
-                    
-                  <label for = "address"><h5>Address</h5></label>
+<div class="container">
+      <div class="row">
+      <div class="col-sm">
+     
+        
+      <label><h5>Address</h5></label>
                   
                     
-                  <Input placeholder="Enter Address" type="text" required onChange={(e)=>{
+                  <textarea placeholder="Enter Address" type="text" required onChange={(e)=>{
                   setAddress(e.target.value);
                    }} />
+              
+    </div>
+   
+    
+   
+  </div>
+</div> 
+<br/>              
+                
+             
+               
                  
+      <div class="container">
+      <div class="row">
 
-                  <label for ="emailAddress"><h5>Email Address</h5></label>
+      <div class="col-sm">
+      <label for ="emailAddress"><h5>Email Address</h5></label>
                  
                     
                     <Input placeholder="Enter Email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title = "Enter a valid email" required
                     onChange={(e)=>{
                     setEmail(e.target.value);
                      }}/>
-                
-
-                  <label for = "mobileNumber"><h5>Mobile Number</h5></label>
+    </div>
+      
+    <div class="col-sm">
+    <label for = "mobileNumber"><h5>Mobile Number</h5></label>
                  
-                    <Input placeholder="Enter Mobile Number" type="text" pattern = "[0-9]{10}" title = "Enter a 10 digit phone number starting with 0"  required onChange={(e)=>{
-                    setMobile(e.target.value);
-                     }}/>
-                 
+                 <Input placeholder="Enter Mobile Number" type="text" pattern = "[0-9]{10}" title = "Enter a 10 digit phone number starting with 0"  required onChange={(e)=>{
+                 setMobile(e.target.value);
+                  }}/>
+              
+    </div>
+   
+  </div>
+</div> 
 
-                  <label for ="nic"><h5>NIC Number</h5></label>
+<br/>
+
+
+<div class="container">
+      <div class="row">
+
+      <div class="col-sm">
+    <label for ="nic"><h5>NIC Number</h5></label>
                   
                     
-                    <Input placeholder="Enter NIC" type="text" 
-                     onChange={(e)=>{
-                    setNic(e.target.value);
-                     }}/>
-                  
-
-                  <label for ="dob"><h5>Date of Birth</h5></label>
+                  <Input placeholder="Enter NIC" type="text" 
+                   onChange={(e)=>{
+                  setNic(e.target.value);
+                   }}/>
+    </div>
+    <div class="col-sm">
+    <label for ="dob"><h5>Date of Birth</h5></label>
                 
                     
-                    <Input placeholder="Enter Date of Birth" type="Date" onChange={(e)=>{
-                    setDob(e.target.value);
-                     }}/>
-
-                 <label for ="gender"><h5> Gender</h5></label>
+                <Input placeholder="Enter Date of Birth" type="Date" onChange={(e)=>{
+                setDob(e.target.value);
+                 }}/>
+              
+    </div>
+     
+    
+    <div class="col-sm">
+    <label for ="gender"><h5> Gender</h5></label>
                 
                     
                 <Input placeholder="Select Gender" type="text" onChange={(e)=>{
                 setGender(e.target.value);
                  }}/>
+    </div>
+    
+  </div>
+</div> 
 
-                
-                <label for ="companyId"><h5>Company ID</h5></label>
+
+<br/>
+
+<div class="container">
+      <div class="row">
+
+      <div class="col-sm">
+      <label for ="companyId"><h5>Company ID</h5></label>
                 
                     
                 <Input placeholder="Enter Comapany ID" type="text" onChange={(e)=>{
                 setCid(e.target.value);
                  }}/>
-
-
-                <label for ="balance"><h5>Balance</h5></label>
+    </div>
+     
+  <div class="col-sm">
+    <label for ="balance"><h5>Balance</h5></label>
                 
                     
                 <Input placeholder="Enter Balance" type="text" onChange={(e)=>{
                 setBalance(e.target.value);
                  }}/>
+              
+    </div>
+   
+    <div class="col-sm">
+     
+     <label for ="addedBy"><h5>Added By</h5></label>
+               
+                   
+               <Input placeholder="Enter Adding Person" type="text" onChange={(e)=>{
+               setAddBy(e.target.value);
+                }}/>
+   </div>
+  </div>
+</div> 
 
-                <label for ="addedAt"><h5>Added At</h5></label>
+
+
+
+
+
+                 
                 
-                    
-                <Input placeholder="Select Date of Today" type="Date" onChange={(e)=>{
-                setAddDate(e.target.value);
-                 }}/>
 
                 <label for ="addedBy"><h5>Added By</h5></label>
                 
-                    
-                <Input placeholder="Enter Adding Person" type="text" onChange={(e)=>{
-                setAddBy(e.target.value);
-                 }}/>
+
+                
+                  
+
+              
+
+              
+
+                
+              
+
+
+              
+
 
                      <br/>
                  
@@ -176,6 +257,7 @@ export default function CustomerAdd() {
                   <button type="submit" className="btn btn-primary">Add Customer</button>
                   </center>
                 </form>
+                </Container>
                 
             
              
@@ -183,8 +265,7 @@ export default function CustomerAdd() {
          
        
       </div>
-      </div>
-    
+  
     </>
   );
 }
