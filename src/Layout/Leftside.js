@@ -12,7 +12,7 @@ export class Leftside extends Component {
                     <hr class="sidebar-divider my-0" />
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="/">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -28,7 +28,7 @@ export class Leftside extends Component {
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">User Management</h6>
-                                <Link class="collapse-item" to="/login">Create New User</Link>
+                                <Link class="collapse-item" to="/AddCus">Create New User</Link>
                                 <Link class="collapse-item" to="/button">Chart</Link>
                             </div>
                         </div>

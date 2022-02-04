@@ -71,8 +71,8 @@ const LoginForm = props => {
             })
             .catch(error => {
                 Swal.fire({
-                    title: 'Error!',
-                    text: 'Login Failed! Internal Server Error!',
+                    title: 'Login Failed!',
+                    text: 'Username or Password incorrect',
                     icon: 'error',
                     confirmButtonText: 'Try again'
                 });

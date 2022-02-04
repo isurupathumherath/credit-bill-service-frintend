@@ -1,0 +1,34 @@
+box: public.ecr.aws/docker/library/node:latest
+build:
+  steps:
+    - npm-install
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: notifications
+        username: werckerbot
+        notify_on: "failed"
+deploy:
+  steps:
+    - heroku-deploy:
+        key: $HEROKU_KEY
+        user: $HEROKU_USER
+        app-name: $HEROKU_APP_NAME
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: notifications
+        username: werckerbot
+        notify_on: "failed"
+
+after-steps:
+  steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: notifications
+        username: werckerbot
