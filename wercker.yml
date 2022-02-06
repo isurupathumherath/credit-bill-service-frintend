@@ -2,7 +2,6 @@ box: public.ecr.aws/docker/library/node:latest
 build:
   steps:
     - npm-install
-    - npm-test --passWithNoTests
     - script:
         name: echo nodejs information
         code: |
