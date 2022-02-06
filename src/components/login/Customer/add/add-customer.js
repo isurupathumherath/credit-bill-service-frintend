@@ -9,3 +9,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
 
+const Add = () => {
+    const [state, setState] = useState({
+        firstName: "",
+        middleName: "",
+        lastName: "",
+        mobileNumber: "",
+        email: "",
+        DOB: "",
+        NIC: "",
+        address: "",
+        type: "",
+        accountStatus: "",
+    });
+}
