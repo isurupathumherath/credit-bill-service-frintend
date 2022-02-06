@@ -6,7 +6,6 @@ import { authenticate, getUser } from '../../api/userHelper';
 //Load .env component
 require('dotenv').config();
 
-
 const LoginForm = props => {
 
     const [username, setUsername] = useState('')
@@ -15,7 +14,7 @@ const LoginForm = props => {
 
     const Swal = require('sweetalert2');
 
-    useEffect(() => {
+    useEffect((props) => {
         getUser() && props.history.push('/');
     }, []);
 
@@ -72,7 +71,7 @@ const LoginForm = props => {
             .catch(error => {
                 Swal.fire({
                     title: 'Login Failed!',
-                    text: 'Username or Password incorrect',
+                    text: `Username or Password incorrect - ${error}`,
                     icon: 'error',
                     confirmButtonText: 'Try again'
                 });
@@ -83,7 +82,7 @@ const LoginForm = props => {
         <div className="container-fluid ps-md-0">
             <div className="row g-0">
                 <div className="d-none d-md-flex col-md-4 col-lg-7">
-                    <img src="https://www.pngitem.com/pimgs/m/127-1272627_billing-software-hd-png-download.png" />
+                    <img alt="Login" src="https://www.pngitem.com/pimgs/m/127-1272627_billing-software-hd-png-download.png" />
                 </div>
                 <div className="col-md-8 col-lg-5">
                     <div className="login d-flex align-items-center py-5">
@@ -125,7 +124,7 @@ const LoginForm = props => {
                                             </button>
                                             <br />
                                             <div className="text-center">
-                                                <a className="small" href="#">Forgot password? Please Contact Your Administrator</a>
+                                                <a className="small" href="/">Forgot password? Please Contact Your Administrator</a>
                                             </div>
                                         </div>
 

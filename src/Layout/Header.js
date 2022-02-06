@@ -1,15 +1,13 @@
 import React from 'react';
 import { getUser, logout } from '../api/userHelper';
 
-// export class Header extends Component({ history }) {
-const Header = (props, history) => {
+const Header = () => {
 
     const username = getUser();
 
     return (
         <div>
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
 
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
@@ -21,18 +19,16 @@ const Header = (props, history) => {
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
+                                <i class="fas fa-search fa-sm"> Search</i>
                             </button>
                         </div>
                     </div>
                 </form>
 
-
                 <ul class="navbar-nav ml-auto">
 
-
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {/* <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="/" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
 
@@ -48,11 +44,11 @@ const Header = (props, history) => {
                                 </div>
                             </form>
                         </div>
-                    </li>
+                    </li> */}
 
 
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {/* <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="/" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <span class="badge badge-danger badge-counter">3+</span>
                         </a>
@@ -61,7 +57,7 @@ const Header = (props, history) => {
                             <h6 class="dropdown-header">
                                 Alerts Center
                             </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="/">
                                 <div class="mr-3">
                                     <div class="icon-circle bg-primary">
                                         <i class="fas fa-file-alt text-white"></i>
@@ -96,10 +92,10 @@ const Header = (props, history) => {
                             </a>
                             <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                         </div>
-                    </li>
+                    </li> */}
 
 
-                    <li class="nav-item dropdown no-arrow mx-1">
+                    {/* <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
 
@@ -152,27 +148,27 @@ const Header = (props, history) => {
                             </a>
                             <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                         </div>
-                    </li>
+                    </li> */}
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
 
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{username}</span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+                            <img class="img-profile rounded-circle" alt="profile" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Settings
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Activity Log
                             </a>
