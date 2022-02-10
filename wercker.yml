@@ -18,12 +18,6 @@ build-docker:
     - internal/docker-build:
       dockerfile: Dockerfile
       image-name: credit-bill-frontend
-    - internal/docker-push:
-        image-name: credit-bill-frontend
-        username: $USERNAME
-        password: $PASSWORD
-        registry: azurecontainerisuru.azurecr.io
-        repository: $USERNAME/credit-bill-frontend
   after-steps:
     - slack-notifier:
         url: $SLACK_URL
