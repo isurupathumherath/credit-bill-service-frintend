@@ -20,8 +20,8 @@ build-docker-and-push:
       image-name: credit-bill-frontend
     - internal/docker-push:
         image-name: credit-bill-frontend
-        username: $USERNAME # Registry username
-        password: $PASSWORD # Registry password
+        username: $USERNAME
+        password: $PASSWORD
         registry: azurecontainerisuru.azurecr.io
         repository: $USERNAME/credit-bill-frontend
 deploy:
