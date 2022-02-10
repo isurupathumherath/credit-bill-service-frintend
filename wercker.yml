@@ -13,7 +13,7 @@ build:
         channel: notifications
         username: werckerbot
         notify_on: "failed"
-build-docker-and-push:
+build-docker:
   steps:
     - internal/docker-build:
       dockerfile: Dockerfile
@@ -24,6 +24,26 @@ build-docker-and-push:
         password: $PASSWORD
         registry: azurecontainerisuru.azurecr.io
         repository: $USERNAME/credit-bill-frontend
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: notifications
+        username: werckerbot
+        notify_on: "failed"
+push-to-acr:
+  steps:
+    - internal/docker-push:
+        image-name: credit-bill-frontend
+        username: $USERNAME
+        password: $PASSWORD
+        registry: azurecontainerisuru.azurecr.io
+        repository: $USERNAME/credit-bill-frontend
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: notifications
+        username: werckerbot
+        notify_on: "failed"
 deploy:
   steps:
     - heroku-deploy:
