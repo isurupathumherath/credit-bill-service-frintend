@@ -41,5 +41,5 @@ after-steps:
   steps:
     - slack-notifier:
         url: $SLACK_URL
-        channel: notifications
+        channel: wercker-isuru-herath
         username: werckerbot
