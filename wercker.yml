@@ -13,6 +13,17 @@ build:
         channel: notifications
         username: werckerbot
         notify_on: "failed"
+build-docker-and-push:
+  steps:
+    - internal/docker-build:
+      dockerfile: Dockerfile
+      image-name: credit-bill-frontend
+    - internal/docker-push:
+        image-name: credit-bill-frontend
+        username: $USERNAME # Registry username
+        password: $PASSWORD # Registry password
+        registry: azurecontainerisuru.azurecr.io
+        repository: $USERNAME/credit-bill-frontend
 deploy:
   steps:
     - heroku-deploy:

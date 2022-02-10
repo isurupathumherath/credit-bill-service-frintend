@@ -82,7 +82,7 @@ const LoginForm = props => {
         <div className="container-fluid ps-md-0">
             <div className="row g-0">
                 <div className="d-none d-md-flex col-md-4 col-lg-7">
-                    <img alt="Login" src="https://www.pngitem.com/pimgs/m/127-1272627_billing-software-hd-png-download.png" />
+                    <img alt="Login" src="https://imgs.bharatmatrimony.com/bmimgs/login/login-otp-banner.png" />
                 </div>
                 <div className="col-md-8 col-lg-5">
                     <div className="login d-flex align-items-center py-5">
