@@ -13,19 +13,11 @@ build:
         channel: notifications
         username: werckerbot
         notify_on: "failed"
-build-docker:
+build-docker-and-push-to-acr:
   steps:
     - internal/docker-build:
       dockerfile: Dockerfile
       image-name: credit-bill-frontend
-  after-steps:
-    - slack-notifier:
-        url: $SLACK_URL
-        channel: notifications
-        username: werckerbot
-        notify_on: "failed"
-push-to-acr:
-  steps:
     - internal/docker-push:
         image-name: credit-bill-frontend
         username: $USERNAME
@@ -50,8 +42,7 @@ deploy:
         channel: notifications
         username: werckerbot
         notify_on: "failed"
-
-after-steps:
+final-notify:
   steps:
     - slack-notifier:
         url: $SLACK_URL
