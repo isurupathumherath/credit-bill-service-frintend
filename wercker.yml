@@ -52,7 +52,8 @@ deploy:
         notify_on: "failed"
 
 after-steps:
-  - slack-notifier:
-      url: $SLACK_URL
-      channel: notifications
-      username: werckerbot
+  steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: notifications
+        username: werckerbot
